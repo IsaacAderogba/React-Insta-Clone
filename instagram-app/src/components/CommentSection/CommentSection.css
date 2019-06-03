@@ -11,3 +11,18 @@
     font-weight: 700;
     font-size: 12px;
 }
+
+.Comment {
+    max-width: 280px;
+}
+
+.Comment p span {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.Comment p {
+    font-size: 14px;
+    padding: 0;
+    margin: 8px 0;
+}

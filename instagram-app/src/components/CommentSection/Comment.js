@@ -9,7 +9,7 @@ export default class Comment extends React.Component {
         const {username, text} = this.props.comment;
 
         return(
-            <div>
+            <div className='Comment'>
                 <p><span>{username}</span> {text}</p>
             </div>
         );
