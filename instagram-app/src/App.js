@@ -1,9 +1,9 @@
-import React from 'react';
-import uuid from 'uuid';
-import dummyData from './dummy-data';
-import SearchBar from './components/SearchBar/SearchBar'
-import PostContainer from './components/PostContainer/PostContainer'
-import './App.css';
+import React from "react";
+import uuid from "uuid";
+import dummyData from "./dummy-data";
+import SearchBar from "./components/SearchBar/SearchBar";
+import PostContainer from "./components/PostContainer/PostContainer";
+import "./App.css";
 
 class App extends React.Component {
   constructor() {
@@ -11,20 +11,44 @@ class App extends React.Component {
 
     this.state = {
       instagramPosts: dummyData,
-      commentAuthor: '',
-      commentText: '',
     };
   }
 
-  render() {
+  onCommentSubmitted = (posterName, author, text) => {
+    const newInstagramData = dummyData.forEach(instagramPost => {
+      if(instagramPost.username === posterName) {
 
+        instagramPost.comments.push({
+          username: author,
+          text: text
+        });
+      }
+      return instagramPost;
+    })
+
+    this.setState({
+      instagramPosts: newInstagramData
+    })
+
+  }
+
+  render() {
     return (
-      <div className='App'>
+      <div className="App">
         <SearchBar />
-        <div className='InstagramPosts'>
+        <div className="InstagramPosts">
           {dummyData.map(instagramPost => {
+            let uniqueId = uuid();
             return (
-              <PostContainer key={uuid()} instagramPostData={instagramPost}/>
+              <PostContainer
+                key={uniqueId}
+                instagramPostData={instagramPost}
+                instagramPosts={this.state.instagramPosts}
+                commentAuthor={this.state.commentAuthor}
+                commentText={this.state.commentText}
+                postID={uniqueId}
+                onCommentSubmitted ={this.onCommentSubmitted}
+              />
             );
           })}
         </div>

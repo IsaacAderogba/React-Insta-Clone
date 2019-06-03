@@ -3,12 +3,13 @@ import uuid from "uuid";
 
 import PropTypes from "prop-types";
 import Comment from "./Comment";
+import AddComment from './AddComment';
 
 import "./CommentSection.css";
 
 export default class CommentSection extends React.Component {
   render() {
-    const { likes, timestamp, comments } = this.props.instagramPostData;
+    const { username, likes, timestamp, comments } = this.props.instagramPostData;
 
     return (
       <div className="CommentSection">
@@ -21,6 +22,15 @@ export default class CommentSection extends React.Component {
           return <Comment key={uuid()} comment={comment}/>;
         })}
         <div className="Timestamp">{timestamp}</div>
+        <AddComment 
+          instagramPosts = {this.props.instagramPosts}
+          commentAuthor = {this.props.commentAuthor}
+          commentText = {this.props.commentText}
+          postID={this.props.postID}
+          username={username}
+          onCommentSubmitted ={this.props.onCommentSubmitted}
+
+        />
       </div>
     );
   }
