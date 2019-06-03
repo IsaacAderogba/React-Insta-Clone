@@ -3,13 +3,15 @@ import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar'
 import './App.css';
 
-function App() {
-  console.log(dummyData);
-  return (
-    <div>
-      <SearchBar />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+
+    return (
+      <div className='App'>
+        <SearchBar />
+      </div>
+    );
+  }
 }
 
 export default App;

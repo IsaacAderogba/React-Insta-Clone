@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo'
+import Search from './Search';
 import './SearchBar.css';
 
 export default class SearchBar extends React.Component {
@@ -7,6 +8,7 @@ export default class SearchBar extends React.Component {
         return (
             <div className='SearchBar'>
                 <Logo />
+                <Search />
             </div>
         );
     }
