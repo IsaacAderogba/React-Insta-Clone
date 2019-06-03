@@ -7,7 +7,7 @@ import './PostContainer.css';
 export default class Author extends React.Component {
 
     render() {
-        const {username, thumbnailUrl} = this.props.authorData;
+        const {username, thumbnailUrl} = this.props.instagramPostData;
 
         return (
             <div className='Author'>
@@ -21,7 +21,7 @@ export default class Author extends React.Component {
 }
 
 Author.propTypes = {
-    authorData: PropTypes.shape({
+    instagramPostData: PropTypes.shape({
         username: PropTypes.string.isRequired,
         thumbnailUrl: PropTypes.string.isRequired
     }).isRequired

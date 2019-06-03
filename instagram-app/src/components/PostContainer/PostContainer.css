@@ -24,3 +24,13 @@
 .Author span {
     margin-left: 8px;
 }
+
+.Image {
+    height: 300px;
+    max-width: 300px;
+}
+
+.Image img {
+    height: 300px;
+    max-width: inherit;
+}
