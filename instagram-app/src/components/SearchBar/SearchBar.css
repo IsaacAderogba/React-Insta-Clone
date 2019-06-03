@@ -4,7 +4,6 @@
     align-items: center;
     margin: 0 auto;
     max-width: 90%;
-    border: 1px solid blue;
 }
 
 .logo {
@@ -37,6 +36,38 @@
 }
 
 .Icons i {
-    margin-left: 16px;
+    margin-right: 16px;
     color: grey;
+}
+
+@media only screen and (max-width: 700px)  {
+    .logo-icon {
+        height: 20px;
+        padding-right: 8px;
+        border-right: 1px solid lightgrey;
+    }
+    
+    .logo-text {
+        padding-left: 8px;
+        height: 30px;
+    }
+
+    .SearchBar {
+        max-width: 95%;
+    }
+
+    .Search input {
+        width: 80%;
+    }
+
+    .Icons i {
+        margin-right: 12px;
+        color: grey;
+    }
+}
+
+@media only screen and (max-width: 400px)  {
+    .logo-text {
+        display: none;
+    }
 }

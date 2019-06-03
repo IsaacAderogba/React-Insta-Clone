@@ -20,6 +20,7 @@ export default class CommentSection extends React.Component {
         {comments.map(comment => {
           return <Comment key={uuid()} comment={comment}/>;
         })}
+        <div className="Timestamp">{timestamp}</div>
       </div>
     );
   }

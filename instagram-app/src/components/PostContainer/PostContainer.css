@@ -1,12 +1,10 @@
 .PostContainer {
-    border: 1px solid green;
-    min-width: 300px;
+    max-width: 300px;
 }
 
 .Author {
     display: flex;
     align-items: center;
-    border: 1px solid gray;
     margin: 16px 0 8px 0;
 }
 
@@ -33,4 +31,22 @@
 .Image img {
     height: 300px;
     max-width: inherit;
+}
+
+@media only screen and (max-width: 700px)  {
+    .PostContainer {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .Image {
+        height: auto;
+        max-width: 100%;
+    }
+    
+    .Image img {
+        height: auto;
+        max-width: inherit;
+    }
+
 }
