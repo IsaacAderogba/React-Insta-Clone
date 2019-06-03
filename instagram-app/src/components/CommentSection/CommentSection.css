@@ -35,6 +35,34 @@
 .AddComment {
     display: flex;
     flex-direction: column;
+    margin-top: 16px;
+}
+
+.AddComment input {
+    padding: 4px 12px;
+    font-size: 12px;
+    background-color: #fafafa;
+
+    border: 1px solid #d4d4d4;
+    margin-bottom: 8px;
+    border-radius: 2px;
+}
+
+.AddComment button {
+    background-color: #23282D;
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 6px;
+    color: white;
+}
+
+.AddComment p {
+    font-size: 14px;
+    margin: 0;
+    padding-top: 8px;
+    border-top: 1px solid lightgray;
+    color: grey;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 700px)  {
