@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid';
 import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar'
 import PostContainer from './components/PostContainer/PostContainer'
@@ -13,7 +14,7 @@ class App extends React.Component {
         <div className='InstagramPosts'>
           {dummyData.map(instagramPost => {
             return (
-              <PostContainer key={instagramPost.username} instagramPostData={instagramPost}/>
+              <PostContainer key={uuid()} instagramPostData={instagramPost}/>
             );
           })}
         </div>
