@@ -1,0 +1,19 @@
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    height: 30px;
+    padding-right: 16px;
+    border-right: 1px solid lightgrey;
+}
+
+.logo-text {
+    padding-left: 16px;
+    height: 35px;
+}
+
+.logo-icon img, .logo-text img {
+    height: inherit;
+}
