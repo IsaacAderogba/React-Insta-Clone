@@ -16,3 +16,9 @@ export default class Image extends React.Component {
         );
     }
 }
+
+Image.propTypes = {
+    instagramPostData: PropTypes.shape({
+        imageUrl: PropTypes.string.isRequired
+    }).isRequired
+}

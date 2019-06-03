@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Author from './Author'
 import Image from './Image';
+import CommentSection from '../CommentSection/CommentSection'
 
 import './PostContainer.css';
 
@@ -12,6 +13,7 @@ export default class PostContainer extends React.Component {
             <div className='PostContainer'>
                 <Author instagramPostData={this.props.instagramPostData}/>
                 <Image instagramPostData = {this.props.instagramPostData}/>
+                <CommentSection instagramPostData = {this.props.instagramPostData}/>
             </div>
         );
     }
