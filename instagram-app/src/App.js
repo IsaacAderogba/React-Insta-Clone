@@ -6,6 +6,16 @@ import PostContainer from './components/PostContainer/PostContainer'
 import './App.css';
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      instagramPosts: dummyData,
+      commentAuthor: '',
+      commentText: '',
+    };
+  }
+
   render() {
 
     return (

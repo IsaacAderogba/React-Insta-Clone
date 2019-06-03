@@ -28,10 +28,11 @@
 
 .Search input {
     width: 150px;
+    background-color: #fafafa;
     font-size: 14px;
     height: 18px;
     text-align: center;
-    border: 1px solid grey;
+    border: 1px solid #d4d4d4;
     border-radius: 2px;
 }
 
