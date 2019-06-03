@@ -2,3 +2,25 @@
     border: 1px solid green;
     min-width: 300px;
 }
+
+.Author {
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    margin: 16px 0 8px 0;
+}
+
+.Author div {
+    height: 24px;
+    width: 24px;
+    border-radius: 1000px;
+}
+
+.Author div img {
+    width: inherit;
+    border-radius: inherit;
+}
+
+.Author span {
+    margin-left: 8px;
+}

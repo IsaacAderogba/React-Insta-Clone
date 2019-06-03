@@ -13,7 +13,7 @@ class App extends React.Component {
         <div className='InstagramPosts'>
           {dummyData.map(instagramPost => {
             return (
-              <PostContainer key={instagramPost.id} instagramPostData={instagramPost}/>
+              <PostContainer key={instagramPost.username} instagramPostData={instagramPost}/>
             );
           })}
         </div>

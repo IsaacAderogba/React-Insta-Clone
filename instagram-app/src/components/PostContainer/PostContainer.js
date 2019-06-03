@@ -7,10 +7,9 @@ import './PostContainer.css';
 export default class PostContainer extends React.Component {
 
     render() {
-        console.log(this.props.instagramPostData);
         return (
             <div className='PostContainer'>
-                <Author />
+                <Author authorData={this.props.instagramPostData}/>
             </div>
         );
     }
