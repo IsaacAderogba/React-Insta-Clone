@@ -2,7 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 32px;
+    margin: 0 auto;
+    max-width: 90%;
+    border: 1px solid blue;
 }
 
 .logo {
@@ -35,6 +37,6 @@
 }
 
 .Icons i {
-    margin: 0 8px;
+    margin-left: 16px;
     color: grey;
 }
