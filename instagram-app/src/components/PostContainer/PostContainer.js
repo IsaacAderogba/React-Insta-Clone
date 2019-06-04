@@ -17,7 +17,6 @@ export default class PostContainer extends React.Component {
           instagramPosts={this.props.instagramPosts}
           postID={this.props.postID}
           onCommentSubmitted ={this.props.onCommentSubmitted}
-
         />
       </div>
     );

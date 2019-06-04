@@ -13,18 +13,31 @@ class App extends React.Component {
       instagramPosts: [],
     };
   }
-
+  
   componentDidMount() {
-    this.setState({ instagramPosts: dummyData})
+    const dataWithIds = dummyData.map(postData => {
+      postData.id = uuid();
+  
+      postData.comments.forEach(comment => {
+        comment.id = uuid();
+      });
+      return postData
+    });
+
+    this.setState({
+      instagramPosts: dataWithIds
+    })
+    
   }
 
-  onCommentSubmitted = (posterName, author, text) => {
-    const newInstagramData = dummyData.forEach(instagramPost => {
-      if(instagramPost.username === posterName) {
+  onCommentSubmitted = (postID, author, text) => {
+    const newInstagramData = this.state.instagramPosts.map(instagramPost => {
+      if(instagramPost.id === postID) {
 
         instagramPost.comments.push({
           username: author,
-          text: text
+          text: text,
+          id: uuid()
         });
       }
       return instagramPost;
@@ -33,22 +46,21 @@ class App extends React.Component {
     this.setState({
       instagramPosts: newInstagramData
     })
-
   }
 
   render() {
+    console.log(this.state.instagramPosts);
     return (
       <div className="App">
         <SearchBar />
         <div className="InstagramPosts">
-          {dummyData.map(instagramPost => {
-            let uniqueId = uuid();
+          {this.state.instagramPosts.map(instagramPost => {
             return (
               <PostContainer
-                key={uniqueId}
+                key={instagramPost.id}
                 instagramPostData={instagramPost}
                 instagramPosts={this.state.instagramPosts}
-                postID={uniqueId}
+                postID={instagramPost.id}
                 onCommentSubmitted ={this.onCommentSubmitted}
               />
             );

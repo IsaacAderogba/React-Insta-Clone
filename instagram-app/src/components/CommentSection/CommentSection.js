@@ -8,6 +8,7 @@ import AddComment from './AddComment';
 import "./CommentSection.css";
 
 export default class CommentSection extends React.Component {
+
   render() {
     const { username, likes, timestamp, comments } = this.props.instagramPostData;
 

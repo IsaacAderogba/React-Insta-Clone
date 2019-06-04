@@ -17,7 +17,7 @@ export default class AddComment extends React.Component {
     event.preventDefault();
 
     this.props.onCommentSubmitted(
-      this.props.username,
+      this.props.postID,
       this.state.commentAuthor,
       this.state.commentText
     );
@@ -45,19 +45,21 @@ export default class AddComment extends React.Component {
 
     if(this.state.showAddComment){
         return (
-          <div className="AddComment">
+          <form onSubmit={this.onSubmitComment} className="AddComment">
             <input
               onChange={this.authorInputHandler}
               value={this.state.commentAuthor}
-              placeholder="Your name"
+              placeholder="Your name" 
+              required
             />
             <input
               onChange={this.textInputHandler}
               value={this.state.commentText}
               placeholder="Add a comment"
+              required
             />
-            <button onClick={this.onSubmitComment}>Submit Comment</button>
-          </div>
+            <button>Submit Comment</button>
+          </form>
         );
     } else {
         return (
