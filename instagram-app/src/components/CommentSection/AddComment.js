@@ -62,8 +62,9 @@ export default class AddComment extends React.Component {
         );
     } else {
         return (
-            <div className='AddComment'>
+            <div className='AddComment Inactive'>
                 <p onClick={this.props.onAddComment}>Add a comment...</p>
+                <i onClick={this.props.onAddComment} className="large material-icons">more_horiz</i>
             </div>
         )
     }

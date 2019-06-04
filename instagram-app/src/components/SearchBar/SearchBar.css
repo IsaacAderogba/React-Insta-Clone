@@ -12,7 +12,7 @@
 }
 
 .logo-icon {
-    height: 30px;
+    height: 25px;
     padding-right: 16px;
     border-right: 1px solid lightgrey;
 }
@@ -27,18 +27,19 @@
 }
 
 .Search input {
-    width: 150px;
+    width: 180px;
     background-color: #fafafa;
     font-size: 14px;
     height: 18px;
     text-align: center;
     border: 1px solid #d4d4d4;
-    border-radius: 2px;
+    border-radius: 16px;
 }
 
 .Icons i {
     margin-right: 16px;
-    color: grey;
+    color: #24292e;
+    padding-top: 6px;
 }
 
 @media only screen and (max-width: 700px)  {
@@ -63,7 +64,6 @@
 
     .Icons i {
         margin-right: 12px;
-        color: grey;
     }
 }
 

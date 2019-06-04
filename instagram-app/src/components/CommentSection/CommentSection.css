@@ -29,7 +29,8 @@
 }
 
 .Comment button {
-    border-radius: 20%; 
+    border-radius: 30%; 
+    border-color: #d4d4d4;
     background: #fafafa;
     cursor: pointer;
     outline: none;
@@ -45,6 +46,20 @@
     display: flex;
     flex-direction: column;
     margin-top: 16px;
+}
+
+.AddComment.Inactive {
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid lightgray;
+}
+
+.AddComment.Inactive i {
+    font-size: 32px;
+    color: #24292e;
+    padding-top: 6px;
 }
 
 .AddComment input {
@@ -70,13 +85,16 @@
     font-size: 14px;
     margin: 0;
     padding-top: 8px;
-    border-top: 1px solid lightgray;
-    color: grey;
-    cursor: pointer;
+    color: #24292e;
 }
+
 
 @media only screen and (max-width: 700px)  {
     .Comment {
         max-width: 100%;
+    }
+
+    .AddComment.Inactive i {
+        font-size: 40px;
     }
 }
