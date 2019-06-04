@@ -54,6 +54,8 @@
     font-size: 13px;
     padding: 6px;
     color: white;
+    cursor: pointer;
+
 }
 
 .AddComment p {

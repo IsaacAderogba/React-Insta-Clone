@@ -24,12 +24,9 @@ export default class CommentSection extends React.Component {
         <div className="Timestamp">{timestamp}</div>
         <AddComment 
           instagramPosts = {this.props.instagramPosts}
-          commentAuthor = {this.props.commentAuthor}
-          commentText = {this.props.commentText}
           postID={this.props.postID}
           username={username}
           onCommentSubmitted ={this.props.onCommentSubmitted}
-
         />
       </div>
     );

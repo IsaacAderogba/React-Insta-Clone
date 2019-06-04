@@ -44,8 +44,6 @@ class App extends React.Component {
                 key={uniqueId}
                 instagramPostData={instagramPost}
                 instagramPosts={this.state.instagramPosts}
-                commentAuthor={this.state.commentAuthor}
-                commentText={this.state.commentText}
                 postID={uniqueId}
                 onCommentSubmitted ={this.onCommentSubmitted}
               />

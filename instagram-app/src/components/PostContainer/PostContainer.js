@@ -15,8 +15,6 @@ export default class PostContainer extends React.Component {
         <CommentSection
           instagramPostData={this.props.instagramPostData}
           instagramPosts={this.props.instagramPosts}
-          commentAuthor={this.props.commentAuthor}
-          commentText={this.props.commentText}
           postID={this.props.postID}
           onCommentSubmitted ={this.props.onCommentSubmitted}
 
