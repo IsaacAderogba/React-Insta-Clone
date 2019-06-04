@@ -5,6 +5,7 @@
 .CommentIcons i {
     margin: 4px 16px 8px 0;
     color: gray;
+    cursor: pointer;
 }
 
 .LikeCount {

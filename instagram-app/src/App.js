@@ -27,7 +27,19 @@ class App extends React.Component {
     this.setState({
       instagramPosts: dataWithIds
     })
-    
+  }
+
+  onLikeClicked = (postID) => {
+    const newInstagramData = this.state.instagramPosts.map(instagramPost => {
+      if(instagramPost.id === postID) {
+        instagramPost.likes++;
+      }
+      return instagramPost;
+    })
+
+    this.setState({
+      instagramPosts: newInstagramData
+    })
   }
 
   onCommentSubmitted = (postID, author, text) => {
@@ -61,6 +73,7 @@ class App extends React.Component {
                 instagramPostData={instagramPost}
                 instagramPosts={this.state.instagramPosts}
                 postID={instagramPost.id}
+                onLikeClicked = {this.onLikeClicked}
                 onCommentSubmitted ={this.onCommentSubmitted}
               />
             );

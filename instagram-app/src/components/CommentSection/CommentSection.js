@@ -3,31 +3,61 @@ import uuid from "uuid";
 
 import PropTypes from "prop-types";
 import Comment from "./Comment";
-import AddComment from './AddComment';
+import AddComment from "./AddComment";
 
 import "./CommentSection.css";
 
 export default class CommentSection extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showAddComment: false
+    };
+  }
+
+  onAddComment = () => {
+    let commentStatus = this.state.showAddComment ? false : true;
+
+    this.setState({
+      showAddComment: commentStatus
+    });
+  };
+
+  onClickLike = postID => {
+    this.props.onLikeClicked(this.props.postID);
+  };
 
   render() {
-    const { username, likes, timestamp, comments } = this.props.instagramPostData;
+    const {
+      username,
+      likes,
+      timestamp,
+      comments
+    } = this.props.instagramPostData;
 
     return (
       <div className="CommentSection">
         <div className="CommentIcons">
-          <i className="small material-icons">favorite_border</i>
-          <i className="small material-icons">chat_bubble_outline</i>
+          <i onClick={this.onClickLike} className="small material-icons">
+            favorite_border
+          </i>
+          <i onClick={this.onAddComment} className="small material-icons">
+            chat_bubble_outline
+          </i>
         </div>
         <div className="LikeCount">{likes} likes</div>
         {comments.map(comment => {
-          return <Comment key={uuid()} comment={comment}/>;
+          return <Comment key={uuid()} comment={comment} />;
         })}
         <div className="Timestamp">{timestamp}</div>
-        <AddComment 
-          instagramPosts = {this.props.instagramPosts}
+        <AddComment
+          onAddComment={this.onAddComment}
+          showAddComment={this.state.showAddComment}
+          instagramPosts={this.props.instagramPosts}
           postID={this.props.postID}
           username={username}
-          onCommentSubmitted ={this.props.onCommentSubmitted}
+          onCommentSubmitted={this.props.onCommentSubmitted}
         />
       </div>
     );

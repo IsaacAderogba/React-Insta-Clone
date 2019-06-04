@@ -8,7 +8,6 @@ export default class AddComment extends React.Component {
     this.state = {
       commentAuthor: "",
       commentText: "",
-      showAddComment: false
     };
   }
 
@@ -35,15 +34,10 @@ export default class AddComment extends React.Component {
     });
   };
 
-  onAddComment = () => {
-    this.setState({
-        showAddComment: true
-    })
-  }
 
   render() {
 
-    if(this.state.showAddComment){
+    if(this.props.showAddComment){
         return (
           <form onSubmit={this.onSubmitComment} className="AddComment">
             <input
@@ -64,7 +58,7 @@ export default class AddComment extends React.Component {
     } else {
         return (
             <div className='AddComment'>
-                <p onClick={this.onAddComment}>Add a comment...</p>
+                <p onClick={this.props.onAddComment}>Add a comment...</p>
             </div>
         )
     }
