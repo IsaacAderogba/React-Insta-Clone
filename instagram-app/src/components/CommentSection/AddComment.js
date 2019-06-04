@@ -20,6 +20,11 @@ export default class AddComment extends React.Component {
       this.state.commentAuthor,
       this.state.commentText
     );
+
+    this.setState({
+      commentAuthor: '',
+      commentText: ''
+    })
   };
 
   authorInputHandler = input => {
