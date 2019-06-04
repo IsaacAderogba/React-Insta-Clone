@@ -30,7 +30,7 @@
     width: 180px;
     background-color: #fafafa;
     font-size: 14px;
-    height: 18px;
+    height: 22px;
     text-align: center;
     border: 1px solid #d4d4d4;
     border-radius: 16px;
@@ -60,6 +60,7 @@
 
     .Search input {
         width: 80%;
+        height: 19px;
     }
 
     .Icons i {

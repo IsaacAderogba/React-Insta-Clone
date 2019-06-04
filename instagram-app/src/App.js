@@ -1,11 +1,21 @@
 import React from "react";
 import uuid from "uuid";
+import Fuse from "fuse.js";
+
 import dummyData from "./dummy-data";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
 import "./App.css";
 
 let savedData = [];
+let options = {
+  threshold: 0.6,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: ["username"]
+};
 
 class App extends React.Component {
   constructor() {
@@ -21,7 +31,6 @@ class App extends React.Component {
 
   retrieveData = () => {
     if (localStorage.length >= 1) {
-
       for (let i = 0; i < localStorage.length; i++) {
         let retrievedPost = JSON.parse(window.localStorage.getItem(i));
         savedData.push(retrievedPost);
@@ -55,16 +64,20 @@ class App extends React.Component {
   }
 
   onSearchHandler = searchInput => {
-    const newSearchList = this.state.instagramPosts.filter(post => {
-      if (post.username.includes(searchInput.target.value)) {
-        return post;
-      }
-      return null;
-    });
+
+    // const newSearchList = this.state.instagramPosts.filter(post => {
+    //   if (post.username.includes(searchInput.target.value)) {
+    //     return post;
+    //   }
+    //   return null;
+    // });
+
+    let fuse = new Fuse(this.state.instagramPosts, options);
+    let fuzzyList = fuse.search(searchInput.target.value);
 
     this.setState({
       searchInput: searchInput.target.value,
-      filteredPosts: newSearchList
+      filteredPosts: fuzzyList
     });
 
     if (searchInput.target.value.length < 1) {

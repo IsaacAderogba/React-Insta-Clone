@@ -38,7 +38,6 @@ export default class CommentSection extends React.Component {
     } = this.props.instagramPostData;
 
     let timePassed = moment(timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow();
-    console.log(timePassed);
 
     return (
       <div className="CommentSection">
