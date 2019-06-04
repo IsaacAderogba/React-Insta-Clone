@@ -1,5 +1,6 @@
 import React from "react";
 import uuid from "uuid";
+import moment from 'moment';
 
 import PropTypes from "prop-types";
 import Comment from "./Comment";
@@ -36,6 +37,9 @@ export default class CommentSection extends React.Component {
       comments
     } = this.props.instagramPostData;
 
+    let timePassed = moment(timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow();
+    console.log(timePassed);
+
     return (
       <div className="CommentSection">
         <div className="CommentIcons">
@@ -54,7 +58,7 @@ export default class CommentSection extends React.Component {
           removeComment={this.props.removeComment}
           />;
         })}
-        <div className="Timestamp">{timestamp}</div>
+        <div className="Timestamp">{timePassed}</div>
         <AddComment
           onAddComment={this.onAddComment}
           showAddComment={this.state.showAddComment}

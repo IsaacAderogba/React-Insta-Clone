@@ -33,6 +33,7 @@
     background: #fafafa;
     cursor: pointer;
     outline: none;
+    padding: 1px 6px;
 }
 
 .Timestamp {
@@ -63,7 +64,6 @@
     padding: 6px;
     color: white;
     cursor: pointer;
-
 }
 
 .AddComment p {
