@@ -5,16 +5,39 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
 import "./App.css";
 
+let savedData = [];
+
 class App extends React.Component {
   constructor() {
     super();
 
+    this.retrieveData();
     this.state = {
       instagramPosts: [],
       searchInput: "",
       filteredPosts: []
     };
   }
+
+  retrieveData = () => {
+    if (localStorage.length >= 1) {
+
+      for (let i = 0; i < localStorage.length; i++) {
+        let retrievedPost = JSON.parse(window.localStorage.getItem(i));
+        savedData.push(retrievedPost);
+      }
+    }
+  };
+
+  saveData = () => {
+    localStorage.clear();
+    let count = 0;
+
+    this.state.instagramPosts.forEach(post => {
+      localStorage.setItem(count, JSON.stringify(post));
+      count++;
+    });
+  };
 
   componentDidMount() {
     const dataWithIds = dummyData.map(postData => {
@@ -27,7 +50,7 @@ class App extends React.Component {
     });
 
     this.setState({
-      instagramPosts: dataWithIds
+      instagramPosts: savedData.length > 0 ? savedData : dataWithIds
     });
   }
 
@@ -81,9 +104,11 @@ class App extends React.Component {
     });
   };
 
-  removeComment = (id) => {
+  removeComment = id => {
     const newInstagramData = this.state.instagramPosts.map(post => {
-      let instagramComments = post.comments.filter(comment => comment.id !== id);
+      let instagramComments = post.comments.filter(
+        comment => comment.id !== id
+      );
       post.comments = instagramComments;
       return post;
     });
@@ -91,9 +116,11 @@ class App extends React.Component {
     this.setState({
       instagramPosts: newInstagramData
     });
-  }
+  };
 
   render() {
+    this.saveData();
+
     let filteredList;
     if (this.state.searchInput) {
       filteredList = this.state.filteredPosts;
