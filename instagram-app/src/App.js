@@ -10,8 +10,12 @@ class App extends React.Component {
     super();
 
     this.state = {
-      instagramPosts: dummyData,
+      instagramPosts: [],
     };
+  }
+
+  componentDidMount() {
+    this.setState({ instagramPosts: dummyData})
   }
 
   onCommentSubmitted = (posterName, author, text) => {
