@@ -11,7 +11,7 @@ class App extends React.Component {
 
     this.state = {
       instagramPosts: [],
-      searchInput: '',
+      searchInput: "",
       filteredPosts: []
     };
   }
@@ -29,7 +29,7 @@ class App extends React.Component {
     this.setState({
       instagramPosts: dataWithIds
     });
-  } 
+  }
 
   onSearchHandler = searchInput => {
     const newSearchList = this.state.instagramPosts.filter(post => {
@@ -81,10 +81,21 @@ class App extends React.Component {
     });
   };
 
-  render() {
+  removeComment = (id) => {
+    const newInstagramData = this.state.instagramPosts.map(post => {
+      let instagramComments = post.comments.filter(comment => comment.id !== id);
+      post.comments = instagramComments;
+      return post;
+    });
 
+    this.setState({
+      instagramPosts: newInstagramData
+    });
+  }
+
+  render() {
     let filteredList;
-    if(this.state.searchInput) {
+    if (this.state.searchInput) {
       filteredList = this.state.filteredPosts;
     } else {
       filteredList = this.state.instagramPosts;
@@ -92,7 +103,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <SearchBar 
+        <SearchBar
           onSearchHandler={this.onSearchHandler}
           searchInput={this.state.searchInput}
           filteredPosts={this.state.filteredPosts}
@@ -102,6 +113,7 @@ class App extends React.Component {
             return (
               <PostContainer
                 key={instagramPost.id}
+                removeComment={this.removeComment}
                 instagramPostData={instagramPost}
                 instagramPosts={this.state.instagramPosts}
                 postID={instagramPost.id}

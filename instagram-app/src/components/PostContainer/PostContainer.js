@@ -13,11 +13,12 @@ export default class PostContainer extends React.Component {
         <Author instagramPostData={this.props.instagramPostData} />
         <Image instagramPostData={this.props.instagramPostData} />
         <CommentSection
+          removeComment={this.props.removeComment}
           instagramPostData={this.props.instagramPostData}
           instagramPosts={this.props.instagramPosts}
           postID={this.props.postID}
-          onLikeClicked = {this.props.onLikeClicked}
-          onCommentSubmitted ={this.props.onCommentSubmitted}
+          onLikeClicked={this.props.onLikeClicked}
+          onCommentSubmitted={this.props.onCommentSubmitted}
         />
       </div>
     );

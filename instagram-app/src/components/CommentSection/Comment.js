@@ -6,11 +6,11 @@ import "./CommentSection.css";
 export default class Comment extends React.Component {
 
     render() {
-        const {username, text} = this.props.comment;
+        const {username, text, id} = this.props.comment;
 
         return(
             <div className='Comment'>
-                <p><span>{username}</span> {text}</p>
+                <p><span>{username}</span> {text} <button onClick={() => this.props.removeComment(id)}> x </button></p>
             </div>
         );
     }

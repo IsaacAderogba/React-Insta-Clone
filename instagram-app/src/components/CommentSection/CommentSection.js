@@ -48,7 +48,11 @@ export default class CommentSection extends React.Component {
         </div>
         <div className="LikeCount">{likes} likes</div>
         {comments.map(comment => {
-          return <Comment key={uuid()} comment={comment} />;
+          return <Comment 
+          key={uuid()} 
+          comment={comment} 
+          removeComment={this.props.removeComment}
+          />;
         })}
         <div className="Timestamp">{timestamp}</div>
         <AddComment
