@@ -40,6 +40,7 @@
     margin-right: 16px;
     color: #24292e;
     padding-top: 6px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 700px)  {

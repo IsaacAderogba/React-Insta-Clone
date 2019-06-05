@@ -1,3 +1,5 @@
+import uuid from "uuid";
+
 const dummyData = [
     {
       username: "philzcoffee",
@@ -79,6 +81,15 @@ const dummyData = [
       ]
     },
   ];
+
+  export const dataWithIds = dummyData.map(postData => {
+    postData.id = uuid();
+
+    postData.comments.forEach(comment => {
+      comment.id = uuid();
+    });
+    return postData;
+  });
   
   export default dummyData;
   
