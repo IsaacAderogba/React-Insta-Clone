@@ -4,8 +4,6 @@ import Instagram from "./instagram.png";
 import "./Login.css";
 
 class Login extends React.Component {
-  
-
   render() {
     return (
       <div className="Login">

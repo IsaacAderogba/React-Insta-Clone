@@ -2,17 +2,16 @@ import React from "react";
 import "./CommentSection.css";
 
 export default class AddComment extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      commentAuthor: "",
-      commentText: "",
+      commentAuthor: props.loggedInUser,
+      commentText: ""
     };
   }
 
-
-  onSubmitComment = (event) => {
+  onSubmitComment = event => {
     event.preventDefault();
 
     this.props.onCommentSubmitted(
@@ -22,15 +21,13 @@ export default class AddComment extends React.Component {
     );
 
     this.setState({
-      commentAuthor: '',
-      commentText: ''
-    })
+      commentAuthor: "",
+      commentText: ""
+    });
   };
 
   authorInputHandler = input => {
-    this.setState({
-      commentAuthor: input.target.value
-    });
+    // return nothing - don't let user amend name
   };
 
   textInputHandler = input => {
@@ -39,34 +36,34 @@ export default class AddComment extends React.Component {
     });
   };
 
-
   render() {
-
-    if(this.props.showAddComment){
-        return (
-          <form onSubmit={this.onSubmitComment} className="AddComment">
-            <input
-              onChange={this.authorInputHandler}
-              value={this.state.commentAuthor}
-              placeholder="Your name" 
-              required
-            />
-            <input
-              onChange={this.textInputHandler}
-              value={this.state.commentText}
-              placeholder="Add a comment"
-              required
-            />
-            <button>Submit Comment</button>
-          </form>
-        );
+    if (this.props.showAddComment) {
+      return (
+        <form onSubmit={this.onSubmitComment} className="AddComment">
+          <input
+            onChange={this.authorInputHandler}
+            value={this.state.commentAuthor}
+            placeholder="Your name"
+            required
+          />
+          <input
+            onChange={this.textInputHandler}
+            value={this.state.commentText}
+            placeholder="Add a comment"
+            required
+          />
+          <button>Submit Comment</button>
+        </form>
+      );
     } else {
-        return (
-            <div className='AddComment Inactive'>
-                <p onClick={this.props.onAddComment}>Add a comment...</p>
-                <i onClick={this.props.onAddComment} className="large material-icons">more_horiz</i>
-            </div>
-        )
+      return (
+        <div className="AddComment Inactive">
+          <p onClick={this.props.onAddComment}>Add a comment...</p>
+          <i onClick={this.props.onAddComment} className="large material-icons">
+            more_horiz
+          </i>
+        </div>
+      );
     }
   }
 }

@@ -13,6 +13,7 @@ export default class PostContainer extends React.Component {
         <Author instagramPostData={this.props.instagramPostData} />
         <Image instagramPostData={this.props.instagramPostData} />
         <CommentSection
+          loggedInUser={this.props.loggedInUser}
           removeComment={this.props.removeComment}
           instagramPostData={this.props.instagramPostData}
           instagramPosts={this.props.instagramPosts}

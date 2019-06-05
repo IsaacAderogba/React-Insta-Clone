@@ -31,7 +31,7 @@ class PostsPage extends React.Component {
   retrieveData = () => {
     if (localStorage.length >= 1) {
       for (let i = 0; i < localStorage.length; i++) {
-        if(window.localStorage.getItem('username')) break;
+        if (window.localStorage.getItem("username")) break;
         let retrievedPost = JSON.parse(window.localStorage.getItem(i));
         savedData.push(retrievedPost);
       }
@@ -42,7 +42,7 @@ class PostsPage extends React.Component {
     localStorage.clear();
     let count = 0;
 
-    localStorage.setItem('username', this.props.username);
+    localStorage.setItem("username", this.props.username);
     this.state.instagramPosts.forEach(post => {
       localStorage.setItem(count, JSON.stringify(post));
       count++;
@@ -50,7 +50,6 @@ class PostsPage extends React.Component {
   };
 
   onSearchHandler = searchInput => {
-
     let fuse = new Fuse(this.state.instagramPosts, options);
     let fuzzyList = fuse.search(searchInput.target.value);
 
@@ -136,6 +135,7 @@ class PostsPage extends React.Component {
                 instagramPostData={instagramPost}
                 instagramPosts={this.state.instagramPosts}
                 postID={instagramPost.id}
+                loggedInUser={this.props.username}
                 onLikeClicked={this.onLikeClicked}
                 onCommentSubmitted={this.onCommentSubmitted}
               />

@@ -1,6 +1,6 @@
 import React from "react";
 import uuid from "uuid";
-import moment from 'moment';
+import moment from "moment";
 
 import PropTypes from "prop-types";
 import Comment from "./Comment";
@@ -37,7 +37,7 @@ export default class CommentSection extends React.Component {
       comments
     } = this.props.instagramPostData;
 
-    let timePassed = moment(timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow();
+    let timePassed = moment(timestamp, "MMMM Do YYYY, h:mm:ss a").fromNow();
 
     return (
       <div className="CommentSection">
@@ -51,14 +51,17 @@ export default class CommentSection extends React.Component {
         </div>
         <div className="LikeCount">{likes} likes</div>
         {comments.map(comment => {
-          return <Comment 
-          key={uuid()} 
-          comment={comment} 
-          removeComment={this.props.removeComment}
-          />;
+          return (
+            <Comment
+              key={uuid()}
+              comment={comment}
+              removeComment={this.props.removeComment}
+            />
+          );
         })}
         <div className="Timestamp">{timePassed}</div>
         <AddComment
+          loggedInUser={this.props.loggedInUser}
           onAddComment={this.onAddComment}
           showAddComment={this.state.showAddComment}
           instagramPosts={this.props.instagramPosts}
