@@ -21,7 +21,7 @@ export default class AddComment extends React.Component {
     );
 
     this.setState({
-      commentAuthor: "",
+      // commentAuthor: "",
       commentText: ""
     });
   };

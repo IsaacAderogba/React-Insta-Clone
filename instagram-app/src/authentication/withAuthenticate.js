@@ -12,7 +12,6 @@ const withAuthenticate = App => {
       if (localStorage.length >= 1) {
         for (let i = 0; i < localStorage.length; i++) {
           if (window.localStorage.getItem("username")) {
-            console.log("success");
             isLoggedIn = true;
             nameOfUser = window.localStorage.getItem("username");
           }
@@ -24,8 +23,6 @@ const withAuthenticate = App => {
         password: "",
         isLoggedIn: isLoggedIn ? isLoggedIn : false
       };
-
-      console.log(this.state.username, this.state.isLoggedIn);
     }
 
     onLogin = event => {

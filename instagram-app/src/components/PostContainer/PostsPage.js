@@ -21,17 +21,18 @@ class PostsPage extends React.Component {
     super(props);
 
     this.retrieveData();
+
     this.state = {
-      instagramPosts: savedData.length > 0 ? savedData : props.dataWithIds,
+      instagramPosts: savedData.length > 1 ? savedData : props.dataWithIds,
       searchInput: "",
       filteredPosts: []
     };
   }
 
   retrieveData = () => {
-    if (localStorage.length >= 1) {
-      for (let i = 0; i < localStorage.length; i++) {
-        if (window.localStorage.getItem("username")) break;
+    if (localStorage.length > 1) {
+      for (let i = 0; i < localStorage.length - 1; i++) {
+
         let retrievedPost = JSON.parse(window.localStorage.getItem(i));
         savedData.push(retrievedPost);
       }
@@ -42,11 +43,13 @@ class PostsPage extends React.Component {
     localStorage.clear();
     let count = 0;
 
-    localStorage.setItem("username", this.props.username);
     this.state.instagramPosts.forEach(post => {
       localStorage.setItem(count, JSON.stringify(post));
+
       count++;
     });
+
+    localStorage.setItem("username", this.props.username);
   };
 
   onSearchHandler = searchInput => {
