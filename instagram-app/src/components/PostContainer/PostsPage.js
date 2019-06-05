@@ -31,6 +31,7 @@ class PostsPage extends React.Component {
   retrieveData = () => {
     if (localStorage.length >= 1) {
       for (let i = 0; i < localStorage.length; i++) {
+        if(window.localStorage.getItem('username')) break;
         let retrievedPost = JSON.parse(window.localStorage.getItem(i));
         savedData.push(retrievedPost);
       }
@@ -41,6 +42,7 @@ class PostsPage extends React.Component {
     localStorage.clear();
     let count = 0;
 
+    localStorage.setItem('username', this.props.username);
     this.state.instagramPosts.forEach(post => {
       localStorage.setItem(count, JSON.stringify(post));
       count++;

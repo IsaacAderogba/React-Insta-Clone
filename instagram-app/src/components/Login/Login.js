@@ -4,26 +4,7 @@ import Instagram from "./instagram.png";
 import "./Login.css";
 
 class Login extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      username: "",
-      password: ""
-    };
-  }
-
-  usernameInputHandler = input => {
-    this.setState({
-      username: input.target.value
-    });
-  };
-
-  passwordInputHandler = input => {
-    this.setState({
-      password: input.target.value
-    });
-  };
+  
 
   render() {
     return (
@@ -31,19 +12,19 @@ class Login extends React.Component {
         <div className="InstagramPhoto">
           <img src={Instagram} alt="Instagram" />
         </div>
-        <form className="LoginForm">
-          <input 
-          placeholder="Username" 
-          required 
-          onChange={this.usernameInputHandler}
-          value={this.state.username}
+        <form className="LoginForm" onSubmit={this.props.onLogin}>
+          <input
+            placeholder="Username"
+            required
+            onChange={this.props.usernameInputHandler}
+            value={this.props.username}
           />
-          <input 
-          type="password"
-          placeholder="Password" 
-          required 
-          onChange={this.passwordInputHandler}
-          value={this.state.password}
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            onChange={this.props.passwordInputHandler}
+            value={this.props.password}
           />
           <button>Login</button>
         </form>
