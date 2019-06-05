@@ -7,37 +7,47 @@ import "./Login.css";
 const LoginWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
   display: flex;
 `;
 
 const PhotoContainer = styled.div`
-  width: 40%;
+  width: 35%;
   height: 100vh;
   padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 700px) {
+    display: none;
+  }
 `;
 
 const HeroPhoto = styled.img`
-  height: 90vh;
+  height: 80vh;
 `;
 
 const HeroText = styled.h1`
   color: #142276;
-  font-weight: bold;
+  font-weight: 800;
 `;
 
 const WelcomeText = styled.p`
   color: lightslategrey;
+  font-size: 16px;
 `;
 
 const FormContainer = styled.form`
-  width: 40%;
+  width: 45%;
   padding: 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media only screen and (max-width: 700px) {
+    width: 90%;
+  }
 `;
 
 const TextInputWrapper = styled.div`
@@ -52,7 +62,7 @@ const TextInput = styled.input`
   background-color: #fafafa;
   border: 1px solid #d4d4d4;
   padding-left: 16px;
-  font-size: 14px;
+  font-size: 16px;
   margin: 8px 0;
 `;
 
@@ -68,7 +78,7 @@ const Button = styled.button`
   color: #5b74de;
   margin: 0 1.5em;
   padding: 0.6em 1em;
-  font-size: 14px;
+  font-size: 16px;
   flex: 1;
   cursor: pointer;
 
@@ -81,6 +91,32 @@ const Button = styled.button`
       -moz-box-shadow: -1px 0px 22px -3px rgba(91, 116, 222, 0.58);
       box-shadow: -1px 0px 22px -3px rgba(91, 116, 222, 0.58);
     `};
+
+  @media only screen and (max-width: 700px) {
+    margin: 0 0.35em;
+  }
+`;
+
+const AltLoginWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap
+  justify-content: space-evenly;
+  margin: 24px 0px;
+`;
+
+const AltLogin = styled.p`
+  color: lightslategrey;
+
+  ${props =>
+    props.social &&
+    css`
+      color: #5b74de;
+      cursor: pointer;
+    `};
+
+  @media only screen and (max-width: 700px) {
+    margin: 8px;
+  }
 `;
 
 class Login extends React.Component {
@@ -90,10 +126,11 @@ class Login extends React.Component {
         <PhotoContainer>
           <HeroPhoto src={Instagram} alt="Instagram" />
         </PhotoContainer>
+
         <FormContainer onSubmit={this.props.onLogin}>
           <HeroText>Community-First Photo Sharing</HeroText>
           <WelcomeText>
-            Welcome! please login or sign up to your account.
+            Welcome! Please login or sign up for an account.
           </WelcomeText>
           <TextInputWrapper>
             <TextInput
@@ -114,6 +151,12 @@ class Login extends React.Component {
             <Button primary>Login</Button>
             <Button>Sign up</Button>
           </ButtonWrapper>
+          <AltLoginWrapper>
+            <AltLogin>Or login with </AltLogin>
+            <AltLogin social>Facebook</AltLogin>
+            <AltLogin social>Pinterest</AltLogin>
+            <AltLogin social>Google</AltLogin>
+          </AltLoginWrapper>
         </FormContainer>
       </LoginWrapper>
     );
