@@ -18,6 +18,7 @@ let options = {
 
 const BackgroundWrapper = styled.div`
   background-color: #fafafa;
+  max-width: 100%;
 `;
 
 const PostsWrapper = styled.div`
