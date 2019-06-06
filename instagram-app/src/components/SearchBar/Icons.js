@@ -7,14 +7,14 @@ const StyledIcons = styled.div`
   flex-wrap: none;
 
   i {
-    margin-left: 24px;
+    margin: 0 12px;
     color: #5c74de;
     padding-top: 6px;
     cursor: pointer;
     font-size: 30px;
 
     @media only screen and (max-width: 700px) {
-      margin-left: 12px;
+      margin: 0 6px;
     }
   }
 `;
