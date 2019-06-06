@@ -2,7 +2,6 @@ import React from "react";
 import uuid from "uuid";
 import Fuse from "fuse.js";
 import styled from "styled-components";
-
 import SearchBar from "../SearchBar/SearchBar";
 import PostContainer from "./PostContainer";
 import Footer from "../Login/Footer";
@@ -37,9 +36,7 @@ const PostsWrapper = styled.div`
 class PostsPage extends React.Component {
   constructor(props) {
     super(props);
-
     this.retrieveData();
-
     this.state = {
       instagramPosts: savedData.length > 1 ? savedData : props.dataWithIds,
       searchInput: "",
@@ -62,7 +59,6 @@ class PostsPage extends React.Component {
 
     this.state.instagramPosts.forEach(post => {
       localStorage.setItem(count, JSON.stringify(post));
-
       count++;
     });
 
@@ -79,9 +75,7 @@ class PostsPage extends React.Component {
     });
 
     if (searchInput.target.value.length < 1) {
-      this.setState({
-        filteredPosts: []
-      });
+      this.setState({ filteredPosts: [] });
     }
   };
 
@@ -93,9 +87,7 @@ class PostsPage extends React.Component {
       return post;
     });
 
-    this.setState({
-      instagramPosts: newInstagramData
-    });
+    this.setState({ instagramPosts: newInstagramData });
   };
 
   onCommentSubmitted = (postID, author, text) => {
@@ -110,9 +102,7 @@ class PostsPage extends React.Component {
       return instagramPost;
     });
 
-    this.setState({
-      instagramPosts: newInstagramData
-    });
+    this.setState({ instagramPosts: newInstagramData });
   };
 
   removeComment = id => {
@@ -124,9 +114,7 @@ class PostsPage extends React.Component {
       return post;
     });
 
-    this.setState({
-      instagramPosts: newInstagramData
-    });
+    this.setState({ instagramPosts: newInstagramData });
   };
 
   render() {

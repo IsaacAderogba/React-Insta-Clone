@@ -25,21 +25,16 @@ const withAuthenticate = App => {
       };
     }
 
-    onLogin = event => {
-      localStorage.setItem("username", this.state.username);
-    };
+    onLogin = () => localStorage.setItem("username", this.state.username);
 
     usernameInputHandler = input => {
-      this.setState({
-        username: input.target.value
-      });
+      this.setState({ username: input.target.value });
     };
 
     passwordInputHandler = input => {
-      this.setState({
-        password: input.target.value
-      });
+      this.setState({ password: input.target.value });
     };
+
     render() {
       if (!this.state.isLoggedIn) {
         return (

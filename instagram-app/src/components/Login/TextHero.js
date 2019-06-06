@@ -97,7 +97,7 @@ const AltLogin = styled.p`
   }
 `;
 
-class TextHero extends React.Component {
+class FormHero extends React.Component {
   render() {
     return (
       <FormContainer onSubmit={this.props.onLogin}>
@@ -137,4 +137,4 @@ class TextHero extends React.Component {
   }
 }
 
-export default TextHero;
+export default FormHero;

@@ -38,6 +38,7 @@ const StyledLogo = styled.div`
     margin-right: 16px;
     padding-right: 16px
     border-right: 1px solid #EAEAEA;
+
     img {
       height: inherit;
     }
@@ -45,7 +46,6 @@ const StyledLogo = styled.div`
     @media only screen and (max-width: 700px) {
         border: none;
   }
-  
 `;
 
 const StyledText = styled.div`

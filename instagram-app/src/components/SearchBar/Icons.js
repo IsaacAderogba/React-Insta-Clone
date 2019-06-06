@@ -20,12 +20,17 @@ const StyledIcons = styled.div`
 `;
 
 export default class Icons extends React.Component {
+  onLogOut = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
+
   render() {
     return (
       <StyledIcons>
         <i className="large material-icons">explore</i>
         <i className="large material-icons">favorite_border</i>
-        <i className="large material-icons">person_outline</i>
+        <i onClick={this.onLogOut} className="large material-icons">person_outline</i>
       </StyledIcons>
     );
   }

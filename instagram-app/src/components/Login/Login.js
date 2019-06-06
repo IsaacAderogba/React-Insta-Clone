@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PhotoHero from "./PhotoHero";
-import TextHero from "./TextHero";
+import FormHero from "./TextHero";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -10,11 +10,11 @@ const BackgroundWrapper = styled.div`
 `;
 
 const LoginWrapper = styled.div`
+  display: flex;
   max-width: 1200px;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  display: flex;
 `;
 
 class Login extends React.Component {
@@ -25,7 +25,7 @@ class Login extends React.Component {
         <BackgroundWrapper>
           <LoginWrapper>
             <PhotoHero />
-            <TextHero
+            <FormHero
               usernameInputHandler={this.props.usernameInputHandler}
               passwordInputHandler={this.props.passwordInputHandler}
               username={this.props.username}
