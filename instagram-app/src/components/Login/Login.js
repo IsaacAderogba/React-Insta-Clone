@@ -5,8 +5,6 @@ import TextHero from "./TextHero";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import "./Login.css";
-
 const BackgroundWrapper = styled.div`
   background-color: #fafafa;
 `;

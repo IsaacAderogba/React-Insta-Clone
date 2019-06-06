@@ -4,8 +4,6 @@ import Search from "./Search";
 import Icons from "./Icons";
 import styled from "styled-components";
 
-import "./SearchBar.css";
-
 const BackgroundWrapper = styled.div`
   border-bottom: 1px solid #eaeaea;
 `;
