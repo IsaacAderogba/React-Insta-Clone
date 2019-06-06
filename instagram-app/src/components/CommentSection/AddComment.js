@@ -17,6 +17,7 @@ const StyledAddComment = styled.form`
   }
 
   button {
+    border: none;
     border-radius: 4px;
     font-size: 14px;
     padding: 8px;
@@ -79,6 +80,8 @@ export default class AddComment extends React.Component {
       this.state.commentText
     );
 
+    this.props.onAddComment();
+
     this.setState({
       // commentAuthor: "",
       commentText: ""
@@ -98,7 +101,7 @@ export default class AddComment extends React.Component {
   render() {
     if (this.props.showAddComment) {
       return (
-        <StyledAddComment onSubmit={this.onSubmitComment}>
+        <StyledAddComment onSubmit={this.onSubmitComment} >
           <input
             onChange={this.authorInputHandler}
             value={this.state.commentAuthor}
