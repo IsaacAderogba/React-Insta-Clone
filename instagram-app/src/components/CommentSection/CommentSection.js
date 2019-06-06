@@ -2,12 +2,9 @@ import React from "react";
 import uuid from "uuid";
 import moment from "moment";
 import styled from "styled-components";
-
 import PropTypes from "prop-types";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
-
-import "./CommentSection.css";
 
 const StyledCommentSection = styled.div`
   margin: 4px;
@@ -80,7 +77,6 @@ export default class CommentSection extends React.Component {
               comment={comment}
               removeComment={this.props.removeComment}
               loggedInUser={this.props.loggedInUser}
-
             />
           );
         })}

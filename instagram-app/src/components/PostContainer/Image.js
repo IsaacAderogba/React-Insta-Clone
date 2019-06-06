@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import "./PostContainer.css";
-
 const StyledImage = styled.div`
   width: 100%;
 

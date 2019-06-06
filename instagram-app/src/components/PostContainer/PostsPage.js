@@ -6,7 +6,6 @@ import styled from "styled-components";
 import SearchBar from "../SearchBar/SearchBar";
 import PostContainer from "./PostContainer";
 import Footer from "../Login/Footer";
-import "./PostContainer.css";
 
 let savedData = [];
 let options = {

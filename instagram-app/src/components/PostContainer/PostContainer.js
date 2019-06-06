@@ -5,8 +5,6 @@ import Image from "./Image";
 import CommentSection from "../CommentSection/CommentSection";
 import styled from "styled-components";
 
-import "./PostContainer.css";
-
 const StyledPostContainer = styled.div`
   flex-basis: 300px;
   flex-grow: 1

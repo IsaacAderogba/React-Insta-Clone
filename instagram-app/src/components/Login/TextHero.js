@@ -98,43 +98,43 @@ const AltLogin = styled.p`
 `;
 
 class TextHero extends React.Component {
-    render() {
-        return (
-            <FormContainer onSubmit={this.props.onLogin}>
-          <HeroText>
-            Community-First Photo Sharing<PinkSpan>.</PinkSpan>
-          </HeroText>
-          <WelcomeText>
-            Welcome! Please login or sign up for an account.
-          </WelcomeText>
-          <TextInputWrapper>
-            <TextInput
-              required
-              placeholder="Username"
-              onChange={this.props.usernameInputHandler}
-              value={this.props.username}
-            />
-            <TextInput
-              required
-              type="password"
-              placeholder="Password"
-              onChange={this.props.passwordInputHandler}
-              value={this.props.password}
-            />
-          </TextInputWrapper>
-          <ButtonWrapper>
-            <Button primary>Login</Button>
-            <Button>Sign up</Button>
-          </ButtonWrapper>
-          <AltLoginWrapper>
-            <AltLogin>Or login with </AltLogin>
-            <AltLogin social>Facebook</AltLogin>
-            <AltLogin social>Pinterest</AltLogin>
-            <AltLogin social>Google</AltLogin>
-          </AltLoginWrapper>
-        </FormContainer>
-        )
-    }
+  render() {
+    return (
+      <FormContainer onSubmit={this.props.onLogin}>
+        <HeroText>
+          Community-First Photo Sharing<PinkSpan>.</PinkSpan>
+        </HeroText>
+        <WelcomeText>
+          Welcome! Please login or sign up for an account.
+        </WelcomeText>
+        <TextInputWrapper>
+          <TextInput
+            required
+            placeholder="Username"
+            onChange={this.props.usernameInputHandler}
+            value={this.props.username}
+          />
+          <TextInput
+            required
+            type="password"
+            placeholder="Password"
+            onChange={this.props.passwordInputHandler}
+            value={this.props.password}
+          />
+        </TextInputWrapper>
+        <ButtonWrapper>
+          <Button primary>Login</Button>
+          <Button>Sign up</Button>
+        </ButtonWrapper>
+        <AltLoginWrapper>
+          <AltLogin>Or login with </AltLogin>
+          <AltLogin social>Facebook</AltLogin>
+          <AltLogin social>Pinterest</AltLogin>
+          <AltLogin social>Google</AltLogin>
+        </AltLoginWrapper>
+      </FormContainer>
+    );
+  }
 }
 
 export default TextHero;

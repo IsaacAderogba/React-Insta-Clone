@@ -19,13 +19,13 @@ const HeroPhoto = styled.img`
 `;
 
 class PhotoHero extends React.Component {
-    render() {
-        return (
-            <PhotoContainer>
-          <HeroPhoto src={Instagram} alt="Instagram" />
-        </PhotoContainer>
-        )
-    }
+  render() {
+    return (
+      <PhotoContainer>
+        <HeroPhoto src={Instagram} alt="Instagram" />
+      </PhotoContainer>
+    );
+  }
 }
 
 export default PhotoHero;
