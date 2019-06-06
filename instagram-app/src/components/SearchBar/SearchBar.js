@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 const BackgroundWrapper = styled.div`
   border-bottom: 1px solid #eaeaea;
+  background: white;
 `;
 
 const StyledSearchBar = styled.nav`

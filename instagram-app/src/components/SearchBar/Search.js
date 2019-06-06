@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledSearch = styled.input`
   flex-basis: 250px;
   flex-shrink: 10;
-  font-size: 14px;
+  font-size: 16px;
   height: 30px;
   text-align: center;
   background-color: #fafafa;

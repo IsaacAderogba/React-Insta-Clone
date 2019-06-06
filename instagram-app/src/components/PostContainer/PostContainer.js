@@ -3,13 +3,25 @@ import PropTypes from "prop-types";
 import Author from "./Author";
 import Image from "./Image";
 import CommentSection from "../CommentSection/CommentSection";
+import styled from "styled-components";
 
 import "./PostContainer.css";
+
+const StyledPostContainer = styled.div`
+  flex-basis: 300px;
+  flex-grow: 1
+  margin: 0 16px;
+
+  @media only screen and (max-width: 700px) {
+    margin: 0;
+    flex-basis: 100%;
+  }
+`;
 
 export default class PostContainer extends React.Component {
   render() {
     return (
-      <div className="PostContainer">
+      <StyledPostContainer>
         <Author instagramPostData={this.props.instagramPostData} />
         <Image instagramPostData={this.props.instagramPostData} />
         <CommentSection
@@ -21,7 +33,7 @@ export default class PostContainer extends React.Component {
           onLikeClicked={this.props.onLikeClicked}
           onCommentSubmitted={this.props.onCommentSubmitted}
         />
-      </div>
+      </StyledPostContainer>
     );
   }
 }

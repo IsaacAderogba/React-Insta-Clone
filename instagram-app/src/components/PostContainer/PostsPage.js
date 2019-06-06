@@ -1,9 +1,11 @@
 import React from "react";
 import uuid from "uuid";
 import Fuse from "fuse.js";
+import styled from "styled-components";
 
 import SearchBar from "../SearchBar/SearchBar";
 import PostContainer from "./PostContainer";
+import Footer from "../Login/Footer";
 import "./PostContainer.css";
 
 let savedData = [];
@@ -15,6 +17,23 @@ let options = {
   minMatchCharLength: 1,
   keys: ["username"]
 };
+
+const BackgroundWrapper = styled.div`
+  background-color: #fafafa;
+`;
+
+const PostsWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: top;
+  flex-wrap: wrap;
+  margin: 24px auto;
+  max-width: 1200px;
+
+  @media only screen and (max-width: 700px) {
+    max-width: 95%;
+  }
+`;
 
 class PostsPage extends React.Component {
   constructor(props) {
@@ -32,7 +51,6 @@ class PostsPage extends React.Component {
   retrieveData = () => {
     if (localStorage.length > 1) {
       for (let i = 0; i < localStorage.length - 1; i++) {
-
         let retrievedPost = JSON.parse(window.localStorage.getItem(i));
         savedData.push(retrievedPost);
       }
@@ -123,13 +141,13 @@ class PostsPage extends React.Component {
     }
 
     return (
-      <div className="PostsPage">
+      <BackgroundWrapper>
         <SearchBar
           onSearchHandler={this.onSearchHandler}
           searchInput={this.state.searchInput}
           filteredPosts={this.state.filteredPosts}
         />
-        <div className="InstagramPosts">
+        <PostsWrapper>
           {filteredList.map(instagramPost => {
             return (
               <PostContainer
@@ -144,8 +162,9 @@ class PostsPage extends React.Component {
               />
             );
           })}
-        </div>
-      </div>
+        </PostsWrapper>
+        <Footer />
+      </BackgroundWrapper>
     );
   }
 }

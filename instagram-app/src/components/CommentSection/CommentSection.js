@@ -1,12 +1,35 @@
 import React from "react";
 import uuid from "uuid";
 import moment from "moment";
+import styled from "styled-components";
 
 import PropTypes from "prop-types";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
 
 import "./CommentSection.css";
+
+const StyledCommentSection = styled.div`
+  margin: 4px;
+`;
+
+const StyledCommentIcons = styled.div`
+  i {
+    margin: 4px 16px 8px 0;
+    color: lightslategrey;
+    cursor: pointer;
+  }
+`;
+
+const StyledLikeCount = styled.div`
+  font-weight: 700;
+  font-size: 16px;
+`;
+
+const StyledTimestamp = styled.div`
+  font-size: 14px;
+  color: lightslategrey;
+`;
 
 export default class CommentSection extends React.Component {
   constructor(props) {
@@ -40,26 +63,28 @@ export default class CommentSection extends React.Component {
     let timePassed = moment(timestamp, "MMMM Do YYYY, h:mm:ss a").fromNow();
 
     return (
-      <div className="CommentSection">
-        <div className="CommentIcons">
+      <StyledCommentSection>
+        <StyledCommentIcons>
           <i onClick={this.onClickLike} className="small material-icons">
             favorite_border
           </i>
           <i onClick={this.onAddComment} className="small material-icons">
             chat_bubble_outline
           </i>
-        </div>
-        <div className="LikeCount">{likes} likes</div>
+        </StyledCommentIcons>
+        <StyledLikeCount>{likes} likes</StyledLikeCount>
         {comments.map(comment => {
           return (
             <Comment
               key={uuid()}
               comment={comment}
               removeComment={this.props.removeComment}
+              loggedInUser={this.props.loggedInUser}
+
             />
           );
         })}
-        <div className="Timestamp">{timePassed}</div>
+        <StyledTimestamp>{timePassed}</StyledTimestamp>
         <AddComment
           loggedInUser={this.props.loggedInUser}
           onAddComment={this.onAddComment}
@@ -69,7 +94,7 @@ export default class CommentSection extends React.Component {
           username={username}
           onCommentSubmitted={this.props.onCommentSubmitted}
         />
-      </div>
+      </StyledCommentSection>
     );
   }
 }
