@@ -1,9 +1,32 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 import logoIcon from "../../pinstaLogo.png";
 import logoText from "../../pinstaText.png";
-import styled from "styled-components";
 
-import './SearchBar.css';
+const BackgroundWrapper = styled.div`
+  border-bottom: 1px solid #eaeaea;
+`;
+
+const StyledHeader = styled.nav`
+  display: flex;
+  height: 10vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  justify-content: space-between;
+  align-items: center;
+
+  ul li {
+    display: inline-block;
+    margin-left: 64px;
+    font-size: 20px;
+    color: #5c74de;
+
+    @media only screen and (max-width: 700px) {
+      margin-left: 24px;
+    }
+  }
+`;
 
 const StyledLogoContainer = styled.div`
   display: flex;
@@ -22,6 +45,7 @@ const StyledLogo = styled.div`
     @media only screen and (max-width: 700px) {
         border: none;
   }
+  
 `;
 
 const StyledText = styled.div`
@@ -36,10 +60,12 @@ const StyledText = styled.div`
   }
 `;
 
-export default class Logo extends React.Component {
-    render() {
-        return (
-            <StyledLogoContainer>
+class Header extends React.Component {
+  render() {
+    return (
+      <BackgroundWrapper>
+        <StyledHeader>
+          <StyledLogoContainer>
             <StyledLogo>
               <img src={`${logoIcon}`} alt="Instagram Logo Icon" />
             </StyledLogo>
@@ -47,6 +73,14 @@ export default class Logo extends React.Component {
               <img src={`${logoText}`} alt="Instagram Logo Text" />
             </StyledText>
           </StyledLogoContainer>
-        );
-    }
+          <ul>
+            <li>Terms</li>
+            <li>Privacy</li>
+          </ul>
+        </StyledHeader>
+      </BackgroundWrapper>
+    );
+  }
 }
+
+export default Header;

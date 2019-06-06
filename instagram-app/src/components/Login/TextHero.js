@@ -24,6 +24,7 @@ const FormContainer = styled.form`
 
   @media only screen and (max-width: 700px) {
     width: 90%;
+    height: 80vh;
   }
 `;
 
